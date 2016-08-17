@@ -26,7 +26,7 @@ int main ()
  * Connect, send and recieve message.
  */
 	printf("Connecting to server...\n");
-	connect (sock, &s_addr, sizeof (s_addr));
+	connect (sock, (struct sockaddr *)&s_addr, sizeof (s_addr));
 	send (sock, "Hi! I'm TCP client!\n", 21, 0);
 	from_len = recv (sock, buf, 22, 0);
 	write (1, buf, from_len);
